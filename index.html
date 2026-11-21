@@ -287,12 +287,12 @@ const QUESTIONS = [
   },
   {
     id: "I2", dimension: "ai",
-    text: "How does the bank govern and operate its models under SR 11-7 model risk management?",
+    text: "How does the bank govern and operate its models under model risk management guidance (SR 26-2)?",
     evidence: "Ask for the model inventory, the most recent validation report, and the monitoring dashboard.",
     options: [
       { value: 1, text: "There is no model inventory. Vendor models are used on the vendor's documentation without internal validation or monitoring." },
       { value: 2, text: "A model inventory exists for regulatory compliance. Validation is periodic and monitoring is manual." },
-      { value: 3, text: "At least one machine learning model was validated under SR 11-7 before going live. Validation is arranged case by case." },
+      { value: 3, text: "At least one machine learning model was validated under the bank's model risk program (SR 26-2) before going live. Validation is arranged case by case." },
       { value: 4, text: "Production models are monitored for drift and fair-lending impact, and a repeatable pipeline takes each model from build through validation to deployment." },
       { value: 5, text: "Monitoring is automated, adverse-action reasons are explainable, and a governance board oversees AI." }
     ]
@@ -304,7 +304,7 @@ const QUESTIONS = [
     options: [
       { value: 1, text: "With vendor rule sets only (the core or card processor's rules), with no in-house tuning." },
       { value: 2, text: "With rules and statistical thresholds that the bank or a consultant tunes about once a year. No machine learning is in production." },
-      { value: 3, text: "A vendor-supplied machine learning fraud score is in production and was validated under SR 11-7. The bank does not build or tune models itself." },
+      { value: 3, text: "A vendor-supplied machine learning fraud score is in production and was validated under the bank's model risk program (SR 26-2). The bank does not build or tune models itself." },
       { value: 4, text: "Several machine learning models cover multiple fraud types, are monitored for drift, and are retrained on the bank's own data." },
       { value: 5, text: "Machine learning scores fraud in real time on digital channels, including account opening, with automated monitoring, and the bank reports the fraud-loss reduction." }
     ]
@@ -328,11 +328,11 @@ const QUESTIONS = [
     text: "In the past 12 months, how many releases of changes to customer-facing or internal systems did the bank initiate itself (not counting vendor-scheduled updates)?",
     evidence: "Ask for the release log or change calendar for the past 12 months.",
     options: [
-      { value: 1, text: "None or one. Changes arrive when the core vendor ships them, and major initiatives happen every few years." },
-      { value: 2, text: "Two to four, delivered as waterfall projects." },
-      { value: 3, text: "Five to eleven, some delivered by teams working in agile sprints." },
-      { value: 4, text: "Twelve to fifty-one (monthly or faster), delivered by cross-functional teams." },
-      { value: 5, text: "Fifty-two or more (weekly or daily)." }
+      { value: 1, text: "None or one." },
+      { value: 2, text: "Two to four." },
+      { value: 3, text: "Five to eleven." },
+      { value: 4, text: "Twelve to fifty-one (about monthly or faster)." },
+      { value: 5, text: "Fifty-two or more (weekly or faster)." }
     ]
   },
   {
@@ -381,14 +381,14 @@ const PROFILES = [
   {
     "number": 1,
     "name": "Branch-Era Bank",
-    "description": "The bank still runs as a branch-and-paper institution on a vendor core it doesn't control. Any digital project will hit the same three walls: fragmented data, manual processes, and no delivery team. Buying a better app first would only add a front end to the problem. The priority is the data foundation, because every later investment depends on it.",
+    "description": "The bank still runs as a branch-and-paper institution on a vendor core it doesn't control. Any digital project will hit the same three walls (fragmented data, manual processes, and no delivery team), so buying a better app first would only add a front end to the problem. The priority is the data foundation, because every later investment depends on it.",
     "action": "Within 12 months, consolidate deposit, loan, and card records under one customer identifier (single CIF) and name data owners for the critical data elements in the Call Report. Use that work to scope the next core-contract renewal."
   },
   {
     "number": 2,
     "name": "Digital Leader",
     "description": "The bank has the foundations: governed data, digital origination, straight-through operations, and a delivery engine. Competitive pressure now comes from fintechs and the largest banks, not from peer community banks. The next frontier is using AI and APIs to grow outside the branch footprint.",
-    "action": "Launch one governed generative-AI use case in servicing or banker support, validated under SR 11-7, and pilot an embedded-banking API partnership with one non-bank platform."
+    "action": "Launch one generative-AI use case in servicing or banker support under a documented AI governance policy (generative AI falls outside SR 26-2), and pilot an embedded-banking API partnership with one non-bank platform."
   },
   {
     "number": 3,
@@ -400,7 +400,7 @@ const PROFILES = [
     "number": 4,
     "name": "Digitalized but Not Transforming",
     "description": "Customers bank digitally, often on a vendor app that peers also license, so the experience offers parity, not an advantage. The bank collects large volumes of digital behavior data and does nothing with it. Meanwhile, digital account opening and P2P payments expose it to fraud that rule sets don't catch.",
-    "action": "Put one in-house or vendor ML model into production on digital-channel data within six months. Real-time fraud scoring on digital account opening is the strongest first case, with SR 11-7 validation from the start."
+    "action": "Put one in-house or vendor ML model into production on digital-channel data within six months. Real-time fraud scoring on digital account opening is the strongest first case, validated under the bank's model risk program (SR 26-2) from the start."
   },
   {
     "number": 5,
